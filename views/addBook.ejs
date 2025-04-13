@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <title>Books I've Read</title>
+</head>
+
+<body>
+    <div class="addBookForm">
+        <form class="addBook" action="/add" method="post">
+            <input type="text" name="newBook" placeholder="Add a new book" autocomplete="off" autofocus="true" />
+            <input type="text" name="newBookFirst" placeholder="Author's first name" autocomplete="off" autofocus="true" />
+            <input type="text" name="newBookLast" placeholder="Author's last name" autocomplete="off" autofocus="true" />
+            <input type="text" name="newBookisbn" placeholder="Book isbn" autocomplete="off" autofocus="true" />
+            <!-- <button type="submit" name="list" value=>+</button> -->
+            <button type="submit" name="list" >+</button>
+        </form>
+    </div>
+    <button class="goHome" type="submit" id="page" value="page" name="home" onclick="window.location.href='/'">Home</button>
+
+</body>
