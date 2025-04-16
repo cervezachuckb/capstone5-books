@@ -14,10 +14,32 @@
 
 <h1>This is a list of books I've read so far in 2025. Yay!</h1>
 
-
 <div class="book-box">
     <h2><%= listTitle %></h2>
+
     <% for(let eachBook of listBooks){%>
+        <div class="book-entry" id="<%=eachBook.id%>">
+    
+        <img src= "https://covers.openlibrary.org/b/isbn/<%= eachBook.isbn %>-M.jpg" alt="Book cover">
+
+        <p class="bookAuthor"><span class="bookHeader">"<%= eachBook.booktitle %>"</span>
+        <br>written by <%= eachBook.authorfirstname %> <%= eachBook.authorlastname %></p>
+        
+
+        <form action="/delete" method="post">
+            Check box to delete this book.
+            <input type="checkbox" name="deleteBookId" value="<%= eachBook.id %>">
+            <button class="deleteBook" type="submit" name="deleteButton" >Delete</button>
+        </form>
+        <br><br>
+        </div>
+    <% } %>
+
+</div>
+
+<!-- <div class="book-box">
+    <h2><%= listTitle %></h2>
+    <% listBooks.forEach((eachBook) => { %>
         <div id="<%=eachBook.id%>">
     
         <img src="https://covers.openlibrary.org/b/isbn/<%= eachBook.isbn %>-M.jpg" alt="Book cover">
@@ -25,10 +47,20 @@
         <p class="bookHeader">"<%= eachBook.booktitle %>"</p>
             
         <p>written by <%= eachBook.authorfirstname %> <%= eachBook.authorlastname %></p>
+        
+
+        <form action="/delete" method="post">
+            Check to delete this book.
+            <input type="checkbox" name="deleteBookId" value="<%= eachBook.id %>">
+            <button type="submit" name="deleteButton" >Delete</button>
+        </form>
         <br><br>
         </div>
-   <% } %>
-</div>
+   <% }); %>
+</div> -->
+
+
+
         <!-- <form class="addBook" action="/add" method="post">
             <input type="text" name="newBook" placeholder="Add a new book" autocomplete="off" autofocus="true" />
             <input type="text" name="newBookFirst" placeholder="Author's first name" autocomplete="off" autofocus="true" />
@@ -39,4 +71,4 @@
         </form> -->
 
 
-        <button type="submit" id="page" value="page" name="choice" onclick="window.location.href='/addABook'">Add a new book here!</button>
+        <button class="addABook" type="submit" id="page" value="page" name="choice" onclick="window.location.href='/addABook'">Add a new book here!</button>

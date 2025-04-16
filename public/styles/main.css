@@ -7,9 +7,11 @@ html {
   body {
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
+    justify-content: center;
+    align-items: center;
     min-height: 95vh;
   }
+
   main {
     text-align: center;
     flex: 1 0 auto;
@@ -21,8 +23,8 @@ html {
   }
 
   .book-box {
-    padding: 20px;
-    max-width: 400px;
+    padding: 40px;
+    max-width: 500px;
     margin: 50px auto;
     background: white;
     border-radius: 15px;
@@ -31,26 +33,51 @@ html {
 
   .bookHeader {
     color: blue;
-    font-size: 1.25rem;
+    font-size: 1.85rem;
+    margin-bottom: 10px;
+  }
+
+  .bookAuthor {
+    line-height: 28px;
+    color: red;
+  }
+
+  .book-entry {
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: yellow;
+    border-bottom: 5px solid green;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   }
 
   .addBook {
-    /* min-height: 70px;
-    padding: 100px;
+    background-color: blue;
     display: flex;
-    align-items: center; */
-    /* border-bottom: 1px solid #f1f1f1; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border-radius: 15px;
+    border: 5px solid white;
   }
 
   .addBookForm {
-    padding: 50px;
-    display: flex;
-    text-align: center;
-    flex: 1 0 auto;
+    margin: auto;
+    width: 50%;
+    height: 50%;
+  }
 
+  input {
+    background-color: pink;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    text-align: center;
   }
 
   .goHome {
+    margin: auto;
     min-height: 70px;
     font-size: 1.25rem;
     width: 70px;
@@ -58,5 +85,38 @@ html {
     border-color: transparent;
     background-color: #a683e3;
     color: #fff;
-    border-width: 0;
+    border: 3px solid white;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  .deleteBook {
+    border-radius: 10px;
+    border: 3px solid blue;
+    background-color: aqua;
+    font-size: 1rem;
+    transition: background-color .75s;
+  }
+
+  .deleteBook:hover {
+    background-color: darkslateblue;
+    color: white; 
+  }
+
+  .addABook {
+    font-size: 1.5rem;
+    padding: 10px;
+    border: 3px solid blue;
+    background-color: pink;
+    transition: font-size .75s;
+    margin-bottom: 30px;
+  }
+
+  .addABook:hover {
+    background-color: darkslateblue;
+    color: white;
+    border: 3px solid white;
+    font-size: 1.55rem;
   }

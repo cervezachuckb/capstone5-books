@@ -9,17 +9,21 @@
   <title>Books I've Read</title>
 </head>
 
-<body>
+<main>
+<h1>Add your new book information below.</h1>
+
     <div class="addBookForm">
         <form class="addBook" action="/add" method="post">
-            <input type="text" name="newBook" placeholder="Add a new book" autocomplete="off" autofocus="true" />
+            <input type="text" name="newBook" placeholder="New book title" autocomplete="off" autofocus="true" />
             <input type="text" name="newBookFirst" placeholder="Author's first name" autocomplete="off" autofocus="true" />
             <input type="text" name="newBookLast" placeholder="Author's last name" autocomplete="off" autofocus="true" />
             <input type="text" name="newBookisbn" placeholder="Book isbn" autocomplete="off" autofocus="true" />
             <!-- <button type="submit" name="list" value=>+</button> -->
-            <button type="submit" name="list" >+</button>
+            <button type="submit" name="list" >Add this book +</button>
         </form>
     </div>
+    <br><br><br>
     <button class="goHome" type="submit" id="page" value="page" name="home" onclick="window.location.href='/'">Home</button>
 
-</body>
+
+</main>

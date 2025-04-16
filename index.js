@@ -31,7 +31,31 @@ app.get("/", async (req, res) => {
   let weekday = days[today.getDay()];
   let day = today.getDate();
   try {
-    const result = await db.query("SELECT * FROM books ORDER BY id ASC");
+    const result = await db.query("SELECT * FROM books ORDER BY id ASC LIMIT 5");
+
+// example for possible pagination by 10
+//     -- For SQL Server 2012 and later
+// SELECT * FROM your_table
+// ORDER BY some_column
+// OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY; -- For the first batch
+
+// SELECT * FROM your_table
+// ORDER BY some_column
+// OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY; -- For the second batch
+
+// -- Continue incrementing the OFFSET by 10 for subsequent batches
+
+// second example for pagination...
+// SELECT * FROM your_table
+// ORDER BY some_column
+// LIMIT 10 OFFSET 0; -- For the first page
+
+// SELECT COUNT(*) FROM your_table;
+
+// SELECT * FROM your_table
+// ORDER BY some_column
+// LIMIT 10 OFFSET 10; -- For the next set of rows
+
     items = result.rows;
     console.log(result.rows);
     
@@ -53,7 +77,7 @@ app.post("/add", async (req, res) => {
   const item2 = req.body.newBookFirst;
   const item3 = req.body.newBookLast;
   const item4 = req.body.newBookisbn;
-  await db.query("INSERT INTO books (bookTitle, authorFirstName, authorLastName) VALUES ($1, $2, $3)", [item, item2, item3])
+  await db.query("INSERT INTO books (bookTitle, authorFirstName, authorLastName, isbn) VALUES ($1, $2, $3, $4)", [item, item2, item3, item4])
   res.redirect("/");
 });
 
@@ -65,10 +89,11 @@ app.post("/add", async (req, res) => {
 // });
 
 
-// app.post("/delete", async (req, res) = {
-// const deleteTask = req.body.deleteItemId;
-// await db.query("DELETE FROM items WHERE id = ($1)", [deleteTask]);
-// });
+app.post("/delete", async (req, res) => {
+const deleteBook = req.body.deleteBookId;
+await db.query("DELETE FROM books WHERE id = ($1)", [deleteBook]);
+res.redirect("/");
+});
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
